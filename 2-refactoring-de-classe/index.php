@@ -14,7 +14,6 @@ $options = [1 => 'Monsieur',2=>'Madame',3=>'Autres'];
 
 $form = new Form($action, $method);  // créer le début du formulaire
 
-
 $form->addTextField('name',$nameField);
 
 $form->addNumberField('minimum_age',$min_age); 

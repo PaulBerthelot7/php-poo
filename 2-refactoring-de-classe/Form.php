@@ -1,4 +1,9 @@
 <?php
+include 'textfield.php';
+include 'numberfield.php';
+include 'checkboxfield.php';
+
+
 class Form{
  public $fields=[]; //field est un tableau contenant l'html 
  public $method; // la methode exercé soit POST
@@ -11,16 +16,27 @@ class Form{
      $this->action = $action;
      $this->method = $method;
  }
+
+ public function __toString ()
+ {
+   return $this->TextField;
+ }
+
+//pas fini à réflechir
+
+
+
+
 //champs de saisi pour le texte
  public function addTextField (string $nameField , string $valueField)
  {
-  $this->fields[]="<input placeholder='Votre nom de jeu' type='text' name='$nameField' value='$valueField'>";
+  $this->fields[]= new TextField($nameField,$valueField) ;
   return $this;
- }
+ } 
 // champs de saisi pour les nombres
  public function addNumberField (string $nameField, string $valueField)
  {
-    $this->fields[]="<input placeholder='Votre nom' type='number' name='$nameField' value='$valueField'>";
+    $this->fields[]= new NumberField($namefield,$valueField);
     return $this;
  }
 //fonction permettant de cocher une case pour ???
@@ -38,7 +54,7 @@ class Form{
  }
 //je décide d'implanter le bouton dans fields pour ne pas me perdre dans le build
 
- public function addSelectField ($options, string $nameField , string $valueField)
+ public function addSelectField (array $options, string $nameField , string $valueField)
  {
     $build_html = "<select name='$nameField'>";
     foreach ($options as $key => $option) {
