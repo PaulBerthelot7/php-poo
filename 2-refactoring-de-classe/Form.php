@@ -17,10 +17,6 @@ class Form{
      $this->method = $method;
  }
 
- public function __toString ()
- {
-   return $this->TextField;
- }
 
 //pas fini à réflechir
 

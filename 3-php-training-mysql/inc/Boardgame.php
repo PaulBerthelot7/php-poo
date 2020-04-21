@@ -55,4 +55,6 @@ class Boardgame {
         $this->picture = $picture;
         return $this;
     }
+
+    
 }
